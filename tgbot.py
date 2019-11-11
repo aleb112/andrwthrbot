@@ -23,7 +23,7 @@ def send_echo(message):
 
 while True:
     try:
-        bot.polling(none_stop=True)
+        bot.polling(none_stop=True, timeout = 100)
 
     except Exception as e:
         print(e)  # или logger.error(e) если есть логгер,
