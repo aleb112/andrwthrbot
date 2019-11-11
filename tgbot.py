@@ -3,7 +3,7 @@ import pyowm
 import telebot
 # from telebot import apihelper
 
-bot = telebot.TeleBot("877194843:AAGChcYUQ7Ol945JAHxSczaeuZfha0BbfRs")
+bot = telebot.TeleBot("877194843:AAGChcYUQ7Ol945JAHxSczaeuZfha0BbfRs", threaded=False)
 # apihelper.proxy = {'https': 'socks5h://207.154.231.216:1080'}
 owm = pyowm.OWM('8b79b20a5b368c91c5e9898490dc0a8a', language = 'ru')
 
@@ -21,11 +21,11 @@ def send_echo(message):
 
 	bot.send_message(message.chat.id, answer)
 
-#while True:
-#    try:
-bot.polling(none_stop=True, timeout = 100)
+while True:
+	try:
+	bot.polling(none_stop=True, timeout = 100)
 
-#    except Exception as e:
-#        print(e)  # или logger.error(e) если есть логгер,
+	except Exception as e:
+        print(e)  # или logger.error(e) если есть логгер,
 #        # или import traceback; traceback.print_exc() для печати полной инфы
-#        time.sleep(15)
+        time.sleep(15)
