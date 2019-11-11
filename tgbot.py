@@ -3,7 +3,7 @@ import pyowm
 import telebot
 from telebot import apihelper
 
-bot = telebot.TeleBot("877194843:AAGChcYUQ7Ol945JAHxSczaeuZfha0BbfRs")
+bot = telebot.TeleBot("877194843:AAGChcYUQ7Ol945JAHxSczaeuZfha0BbfRs", threaded = False)
 apihelper.proxy = {'https': 'socks5h://207.154.231.216:1080'}
 owm = pyowm.OWM('8b79b20a5b368c91c5e9898490dc0a8a', language = 'ru')
 
