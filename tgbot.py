@@ -1,10 +1,10 @@
 # telegram bot
 import pyowm
 import telebot
-from telebot import apihelper
+# from telebot import apihelper
 
 bot = telebot.TeleBot("877194843:AAGChcYUQ7Ol945JAHxSczaeuZfha0BbfRs", threaded = False)
-apihelper.proxy = {'https': 'socks5h://207.154.231.216:1080'}
+# apihelper.proxy = {'https': 'socks5h://207.154.231.216:1080'}
 owm = pyowm.OWM('8b79b20a5b368c91c5e9898490dc0a8a', language = 'ru')
 
 @bot.message_handler(commands=['start'])
@@ -16,8 +16,8 @@ def send_echo(message):
 	observation = owm.weather_at_place(message.text)
 	w = observation.get_weather()
 	temp = w.get_temperature('celsius')['temp']
-	answer = 'В городе ' + message.text + ' сейчас ' + w.get_detailed_status() + '\n'
-	answer += 'Температура приблизительно ' + str(temp) + '\n\n'
+	answer = 'В городе ' + message.text + ' сейчас ' + w.get_detailed_status() + '.\n'
+	answer += 'Температура приблизительно ' + str(temp) + '\n'
 
 	bot.send_message(message.chat.id, answer)
 
