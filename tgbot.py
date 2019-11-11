@@ -13,4 +13,4 @@ def send_echo(message):
 	answer += 'Температура приблизительно ' + str(temp) + '\n\n'
 
 	bot.send_message(message.chat.id, answer)
-bot.polling(none_stop = True)
+bot.polling(none_stop = True, timeout=100)
