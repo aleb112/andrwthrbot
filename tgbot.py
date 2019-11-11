@@ -17,15 +17,15 @@ def send_echo(message):
 	w = observation.get_weather()
 	temp = w.get_temperature('celsius')['temp']
 	answer = 'В городе ' + message.text + ' сейчас ' + w.get_detailed_status() + '.\n'
-	answer += 'Температура приблизительно ' + str(temp) + '\n'
+	answer += 'Температура приблизительно ' + str(temp) + '°C' + '\n'
 
 	bot.send_message(message.chat.id, answer)
 
-while True:
-    try:
-        bot.polling(none_stop=True, timeout = 100)
+#while True:
+#    try:
+bot.polling(none_stop=True, timeout = 100)
 
-    except Exception as e:
-        print(e)  # или logger.error(e) если есть логгер,
-        # или import traceback; traceback.print_exc() для печати полной инфы
-        time.sleep(15)
+#    except Exception as e:
+#        print(e)  # или logger.error(e) если есть логгер,
+#        # или import traceback; traceback.print_exc() для печати полной инфы
+#        time.sleep(15)
