@@ -9,7 +9,7 @@ def start_message(message):
     bot.send_message(message.chat.id, 'Пожалуйста, напишите название города, для которого хотите узнать погоду.')
 
 @bot.message_handler(content_types=['text'])
-def send_text(message):
+def send_echo(message):
 	observation = owm.weather_at_place(message.text)
 	w = observation.get_weather()
 	temp = w.get_temperature('celsius')['temp']
