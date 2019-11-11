@@ -1,10 +1,13 @@
 # telegram bot
 import pyowm
 import telebot
-from telebot import apihelper
+#from telebot import apihelper
+import logging
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 bot = telebot.TeleBot("877194843:AAGChcYUQ7Ol945JAHxSczaeuZfha0BbfRs", threaded=False)
-apihelper.proxy = {'https': 'socks5h://167.86.121.208:40077'}
+#apihelper.proxy = {'https': 'socks5h://167.86.121.208:40077'}
 owm = pyowm.OWM('8b79b20a5b368c91c5e9898490dc0a8a', language = 'ru')
 
 @bot.message_handler(commands=['start'])
@@ -27,5 +30,5 @@ while True:
 
 	except Exception as e:
         print(e)  # или logger.error(e) если есть логгер,
-#        # или import traceback; traceback.print_exc() для печати полной инфы
+        # или import traceback; traceback.print_exc() для печати полной инфы
         time.sleep(15)
