@@ -2,7 +2,11 @@
 import pyowm
 import telebot
 owm = pyowm.OWM('8b79b20a5b368c91c5e9898490dc0a8a', language = 'ru')
-bot = telebot.TeleBot("877194843:AAGChcYUQ7Ol945JAHxSczaeuZfha0BbfRs")
+bot = telebot.TeleBot("877194843:AAGChcYUQ7Ol945JAHxSczaeuZfha0BbfRs", threaded=False)
+from telebot import apihelper
+apihelper.proxy = {
+    'https': 'socks5h://207.154.231.216:1080'
+}
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
@@ -17,4 +21,12 @@ def send_echo(message):
 	answer += 'Температура приблизительно ' + str(temp) + '\n\n'
 
 	bot.send_message(message.chat.id, answer)
-bot.polling(none_stop = True, timeout = 100)
+
+while True:
+    try:
+        bot.polling(none_stop=True)
+
+    except Exception as e:
+        print(e)  # или logger.error(e) если есть логгер,
+        # или import traceback; traceback.print_exc() для печати полной инфы
+        time.sleep(15)
