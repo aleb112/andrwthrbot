@@ -3,8 +3,7 @@ import pyowm
 import telebot
 #from telebot import apihelper
 import logging
-logging.basicConfig(level=logging.DEBUG,
-                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.DEBUG,format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 bot = telebot.TeleBot("877194843:AAGChcYUQ7Ol945JAHxSczaeuZfha0BbfRs", threaded=False)
 #apihelper.proxy = {'https': 'socks5h://167.86.121.208:40077'}
